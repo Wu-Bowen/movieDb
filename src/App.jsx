@@ -77,7 +77,7 @@ function App() {
             .then(res => res.json())
             .then(data => {
                 console.log(data.results);
-                setVideo(data.results);
+                setVideo(data.results[0]?.key);
             })
         setModalOpen(true);
     }
