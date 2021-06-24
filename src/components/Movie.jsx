@@ -7,11 +7,12 @@ const Movie = ({ title, poster_path, overview, vote_average }) => {
         <div className="movie">
 
 
-            <div>
-                <img src={IMG_API + poster_path} alte={title} />
+
+            <img src={IMG_API + poster_path} alte={title} />
+            <div className="movie-info">
+                <h3>{title}</h3>
+                <span> {vote_average} </span>
             </div>
-            <h3>{title}</h3>
-            <span> {vote_average} </span>
         </div>
     )
 
