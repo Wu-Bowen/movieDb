@@ -17,12 +17,21 @@ function App() {
     }, [])
 
     return (
+        <>
+            <header>
+                <input
+                    className="search"
+                    type="search"
+                    placeholder="Search Movies..."
+                />
+            </header>
+            < div className="movie-container">
 
-        < div className="movie-container">
-            {movies.length > 0 && movies.map(movie => {
-                return <Movie key={movie.id} {...movie} />
-            })}
-        </div>
+                {movies.length > 0 && movies.map(movie => {
+                    return <Movie key={movie.id} {...movie} />
+                })}
+            </div>
+        </>
     );
 }
 
