@@ -10,13 +10,17 @@ function App() {
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        getMovies(FEATURED_API);
+        if (window.location.href.includes('search?=')) {
+            const search = Search_API + window.location.href.substring(window.location.href.indexOf('search?=') + 8);
+            getMovies(search);
+        } else {
+            getMovies(FEATURED_API);
+        }
     }, [])
 
     const getMovies = (API) => {
         fetch(API).then(res => res.json())
             .then(data => {
-                console.log(data);
                 setMovies(data.results);
             });
     }
@@ -25,6 +29,7 @@ function App() {
         if (searchTerm) {
             getMovies(Search_API + searchTerm);
             setSearchTerm('');
+            window.history.pushState({}, null, window.location.href.split('/')[0] + 'search?=' + searchTerm);
         }
     }
     const handleOnChange = (e) => {
