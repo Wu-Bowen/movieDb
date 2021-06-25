@@ -84,11 +84,11 @@ function App() {
     return (
         <>
             <header>
-                <MenuIcon />
+                <MenuIcon style={{ visibility: 'hidden' }} />
                 <button
                     type="button"
                     className={"title"}
-                    onClick={() => window.location = window.location.origin + '/movieDB/'}
+                    onClick={() => window.location = window.location.origin + '/movieDb/'}
 
                 >
                     MovieDB
