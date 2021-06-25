@@ -7,7 +7,10 @@ const setVoteClass = (vote) => {
         return 'green';
     } else if (vote >= 6) {
         return 'orange';
-    } else {
+    } else if(vote ==0){
+        return 'na';
+    }
+    else {
         return 'red';
     }
 }
@@ -20,7 +23,7 @@ const Movie = ({ title, poster_path, overview, vote_average}) => {
                 <span
                     className={
                         `tag ${setVoteClass(vote_average)}`}>
-                    {vote_average}
+                    {vote_average === 0? 'N/A' : vote_average}
                 </span>
             </div>
             <div className="movie-hover">

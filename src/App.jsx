@@ -73,10 +73,10 @@ function App() {
 
     const handleClick = (movie) => {
         setSelectedMovie(movie);
+        console.log(movie);
         fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.results);
                 setVideo(data.results[0]?.key);
             })
         setModalOpen(true);
@@ -85,9 +85,13 @@ function App() {
         <>
             <header>
                 <MenuIcon />
-                <span className="title">
+                <button
+                    type="button"
+                    className={"title"}
+                    onClick={() => window.location = window.location.origin}
+                >
                     🎬 MovieDB 🎥
-                </span>
+                </button>
                 <form onSubmit={handleOnSubmit}>
                     <input
                         className="search"
