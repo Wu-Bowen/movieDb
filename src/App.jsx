@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Movie from './components/Movie';
+import Carousel from './components/Carousel';
 import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -171,9 +172,9 @@ function App() {
                                         {selectedMovie.overview}
                                     </span>
 
-                                    {/* <div>
-                                        <Carousel id={id} media_type={media_type} />
-                                    </div> */}
+                                    <div>
+                                        <Carousel id={selectedMovie.id} />
+                                    </div>
 
                                     <Button
                                         variant="contained"
