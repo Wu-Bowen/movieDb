@@ -88,7 +88,8 @@ function App() {
                 <button
                     type="button"
                     className={"title"}
-                    onClick={() => window.location = window.location.origin}
+                    onClick={() => window.location = window.location.origin + '/movieDB/'}
+
                 >
                     MovieDB
                 </button>
